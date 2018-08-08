@@ -1,8 +1,9 @@
-/Projet_Vol/target
-/Projet_Vol/target/**
-/Projet_Vol/.classpath
-/Projet_Vol/.settings/**
-/Projet_Vol/.project
-/Projet_Vol/.metadata
+/target
+/target/**
+/.classpath
+/.settings/**
+/.project
+/.metadata
 /.metadata
 
+/target/
