@@ -1,7 +1,0 @@
-/target
-/target/**
-/.classpath
-/.settings/**
-/.project
-/.metadata
-/bin/**
