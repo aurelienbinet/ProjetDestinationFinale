@@ -2,8 +2,8 @@ package repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import model.Vol;
+import model.Ville;
 
-public interface VolRepository extends JpaRepository<Vol, Long>{
+public interface VilleRepository extends JpaRepository<Ville, Long> {
 
 }
