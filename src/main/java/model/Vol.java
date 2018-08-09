@@ -18,7 +18,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name=vol)
+@Table(name="vol")
 public class Vol {
 	
 	@Id
