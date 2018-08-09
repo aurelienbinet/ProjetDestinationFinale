@@ -1,0 +1,9 @@
+etape 1 
+creer les classes avec annotations
+aurélien - Clients
+Thomas - Réservations
+Hugo - Passagers
+Mathilde - Vols + villes et escales
+
+étape 2
+repositories
