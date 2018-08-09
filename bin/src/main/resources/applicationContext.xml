@@ -31,7 +31,7 @@
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="packagesToScan" value="formationJPA.model"></property>
+		<property name="packagesToScan" value="model"></property>
 		<property name="jpaVendorAdapter">
 			<bean
 				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
@@ -52,10 +52,10 @@
 			ref="entityManagerFactory"></property>
 	</bean>
 
-	<tx:annotation-driven
+	<tx:annotation-drien
 		transaction-manager="transactionManager" />
 		
 	<bean
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"></bean>
-		<jpa:repositories base-package="formationJPA.repositories"></jpa:repositories>
+		<jpa:repositories base-package="repositories"></jpa:repositories>
 </beans>

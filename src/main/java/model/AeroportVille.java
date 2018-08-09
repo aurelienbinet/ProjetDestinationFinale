@@ -7,6 +7,8 @@ import javax.persistence.*;
 public class AeroportVille {
 	@EmbeddedId
 	private AeroportVillePK key;
+	@Version
+	private int version;
 
 	public AeroportVille() {
 	}
