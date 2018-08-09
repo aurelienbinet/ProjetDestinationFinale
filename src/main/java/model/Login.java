@@ -19,7 +19,7 @@ public class Login {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqLogin")
 	@Column(name = "id_login")
-	private Long id_login;
+	private Long id;
 	@Column(name = "login")
 	private String login;
 	@Column(name = "motDePasse")
@@ -27,7 +27,7 @@ public class Login {
 	@Column(name = "admin")
 	private Boolean admin;
 
-	@OneToOne(mappedBy = "client", fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "login", fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_client")
 	private Client client;
 
@@ -51,7 +51,7 @@ public class Login {
 	}
 
 	public void setId(Long id_login) {
-		this.id_login = id_login;
+		this.id = id_login;
 	}
 
 	public String getLogin() {
@@ -79,7 +79,7 @@ public class Login {
 	}
 
 	public Long getId() {
-		return id_login;
+		return id;
 	}
 
 	public Client getClient() {
@@ -96,7 +96,7 @@ public class Login {
 		int result = 1;
 		result = prime * result + ((admin == null) ? 0 : admin.hashCode());
 		result = prime * result + ((client == null) ? 0 : client.hashCode());
-		result = prime * result + ((id_login == null) ? 0 : id_login.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((motDePasse == null) ? 0 : motDePasse.hashCode());
 		return result;
@@ -121,10 +121,10 @@ public class Login {
 				return false;
 		} else if (!client.equals(other.client))
 			return false;
-		if (id_login == null) {
-			if (other.id_login != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!id_login.equals(other.id_login))
+		} else if (!id.equals(other.id))
 			return false;
 		if (login == null) {
 			if (other.login != null)
