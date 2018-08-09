@@ -56,7 +56,7 @@ public abstract class Client {
     @JoinColumn(name = "id_login")
 	private Login login;
     
-    @OneToMany(mappedBy="key.client")
+    @OneToMany(mappedBy="client")
     private Set<Reservation> reservations;
 
 	public Client(String typeClient,String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
