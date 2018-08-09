@@ -30,9 +30,6 @@ public abstract class Client {
 	@Column(name = "id_client")
 	private Long id_client;
 	
-	@Column(name = "type_client", length=20)
-	private String typeClient;
-	
 	@Column(name = "nom_client", length=20)
 	private String nom;
 	
@@ -61,7 +58,6 @@ public abstract class Client {
 
 	public Client(String typeClient,String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
 		super();
-		this.typeClient = typeClient;
 		this.nom = nom;
 		this.numeroTel = numeroTel;
 		this.numeroFax = numeroFax;
@@ -71,7 +67,6 @@ public abstract class Client {
 
 	public Client(String typeClient, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse, Login login) {
 		super();
-		this.typeClient = typeClient;
 		this.nom = nom;
 		this.numeroTel = numeroTel;
 		this.numeroFax = numeroFax;
@@ -161,13 +156,7 @@ public abstract class Client {
 		this.login = login;
 	}
 
-	public String getTypeClient() {
-		return typeClient;
-	}
 
-	public void setTypeClient(String typeClient) {
-		this.typeClient = typeClient;
-	}
 
 	@Override
 	public int hashCode() {
