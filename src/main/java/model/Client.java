@@ -20,7 +20,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "client")
+@Table(name="client")
 @DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, length = 10, name = "type")
 public abstract class Client {
 
@@ -28,38 +28,38 @@ public abstract class Client {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
 	@SequenceGenerator(name = "seqClient", sequenceName = "seq_client", initialValue = 50, allocationSize = 1)
 	@Column(name = "id_client")
-	private Long id;
-
-	@Column(name = "type_client", length = 20)
+	private Long id_client;
+	
+	@Column(name = "type_client", length=20)
 	private String typeClient;
-
-	@Column(name = "nom_client", length = 20)
+	
+	@Column(name = "nom_client", length=20)
 	private String nom;
-
-	@Column(name = "tel_client", length = 15)
+	
+	@Column(name="tel_client",length=15)
 	private Integer numeroTel;
-
-	@Column(name = "fax_client", length = 20)
+		
+	@Column(name="fax_client",length=20)
 	private Integer numeroFax;
-
-	@Column(name = "email_client", length = 50)
+	
+	@Column(name="email_client",length=50)
 	private String email;
-
+	
 	@Embedded
 	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero_rue_client")),
 			@AttributeOverride(name = "rue", column = @Column(name = "rue_client", length = 150)),
 			@AttributeOverride(name = "codePostal", column = @Column(name = "code_postal_client", length = 5)),
 			@AttributeOverride(name = "ville", column = @Column(name = "ville_client", length = 150)) })
 	private Adresse adresse;
-
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_login")
+	
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_login")
 	private Login login;
+    
+    @OneToMany(mappedBy="key.client")
+    private Set<Reservation> reservations;
 
-	@OneToMany(mappedBy = "key.client")
-	private Set<Reservation> reservations;
-
-	public Client(String typeClient, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
+	public Client(String typeClient,String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
 		super();
 		this.typeClient = typeClient;
 		this.nom = nom;
@@ -69,8 +69,7 @@ public abstract class Client {
 		this.adresse = adresse;
 	}
 
-	public Client(String typeClient, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse,
-			Login login) {
+	public Client(String typeClient, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse, Login login) {
 		super();
 		this.typeClient = typeClient;
 		this.nom = nom;
@@ -85,13 +84,14 @@ public abstract class Client {
 		super();
 	}
 
+
 	public void setId(Long id_client) {
-		this.id = id_client;
+		this.id_client = id_client;
 
 	}
 
 	public Long getId() {
-		return id;
+		return id_client;
 	}
 
 	public String getNom() {
@@ -108,6 +108,16 @@ public abstract class Client {
 
 	public void setNumeroTel(Integer numeroTel) {
 		this.numeroTel = numeroTel;
+	}
+	
+	
+
+	public Long getId_client() {
+		return id_client;
+	}
+
+	public void setId_client(Long id_client) {
+		this.id_client = id_client;
 	}
 
 	public Set<Reservation> getReservations() {
@@ -133,6 +143,7 @@ public abstract class Client {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 
 	public Adresse getAdresse() {
 		return adresse;
@@ -162,7 +173,7 @@ public abstract class Client {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((id_client == null) ? 0 : id_client.hashCode());
 		return result;
 	}
 
@@ -175,12 +186,15 @@ public abstract class Client {
 		if (getClass() != obj.getClass())
 			return false;
 		Client other = (Client) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (id_client == null) {
+			if (other.id_client != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!id_client.equals(other.id_client))
 			return false;
 		return true;
 	}
+	
+	
 
+	
 }
