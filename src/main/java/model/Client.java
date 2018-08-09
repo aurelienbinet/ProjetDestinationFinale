@@ -28,7 +28,7 @@ public abstract class Client {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
 	@SequenceGenerator(name = "seqClient", sequenceName = "seq_client", initialValue = 50, allocationSize = 1)
 	@Column(name = "id_client")
-	private Long id_client;
+	private Long id;
 
 	@Column(name = "type_client", length = 20)
 	private String typeClient;
@@ -55,9 +55,6 @@ public abstract class Client {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_login")
 	private Login login;
-    
-    @OneToMany(mappedBy="client")
-    private Set<Reservation> reservations;
 
 	@OneToMany(mappedBy = "key.client")
 	private Set<Reservation> reservations;
@@ -89,7 +86,7 @@ public abstract class Client {
 	}
 
 	public void setId(Long id_client) {
-		this.id_client = id_client;
+		this.id = id_client;
 
 	}
 
