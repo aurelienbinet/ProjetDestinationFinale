@@ -17,18 +17,18 @@ public class ClientEl extends Client {
 	}
 
 	
-//	public ClientEl(String typeClient, String prenom , String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse, String titre) {
-//		super(typeClient, nom, numeroTel, numeroFax, email, adresse);
-//		this.prenom=prenom;
-//	}
-//	public ClientEl(String typeClient, String prenom , String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse, Login login, String titre) {
-//		super(typeClient, nom, numeroTel, numeroFax, email, adresse, login);
-//		this.prenom=prenom;
-//	}
-//	public ClientEl(String typeClient, String prenom, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
-//		super(typeClient, nom, numeroTel, numeroFax, email, adresse);
-//		this.prenom = prenom;
-//	}
+	public ClientEl(String typeClient, String prenom , String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse, String titre) {
+		super(typeClient, nom, numeroTel, numeroFax, email, adresse);
+		this.prenom=prenom;
+	}
+	public ClientEl(String typeClient, String prenom , String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse, Login login, String titre) {
+		super(typeClient, nom, numeroTel, numeroFax, email, adresse, login);
+		this.prenom=prenom;
+	}
+	public ClientEl(String typeClient, String prenom, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
+		super(typeClient, nom, numeroTel, numeroFax, email, adresse);
+		this.prenom = prenom;
+	}
 
 
 
