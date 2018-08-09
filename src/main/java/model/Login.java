@@ -27,7 +27,7 @@ public class Login {
 	@Column(name = "admin")
 	private Boolean admin;
 
-	@OneToOne(mappedfetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "client", fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_client")
 	private Client client;
 
@@ -138,7 +138,5 @@ public class Login {
 			return false;
 		return true;
 	}
-	
-	
 
 }
