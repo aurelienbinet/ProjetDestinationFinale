@@ -21,7 +21,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="client")
-//@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, length = 10, name = "type")
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, length = 10, name = "type")
 public abstract class Client {
 
 	@Id
@@ -45,40 +45,40 @@ public abstract class Client {
 	@Column(name="email_client",length=50)
 	private String email;
 	
-//	@Embedded
-//	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero_rue_client")),
-//			@AttributeOverride(name = "rue", column = @Column(name = "rue_client", length = 150)),
-//			@AttributeOverride(name = "codePostal", column = @Column(name = "code_postal_client", length = 5)),
-//			@AttributeOverride(name = "ville", column = @Column(name = "ville_client", length = 150)) })
-//	private Adresse adresse;
-//	
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "login_id")
-//	private Login login;
-//    
-//    @OneToMany(mappedBy="key.client")
-//    private Set<Reservation> reservations;
-//
-//	public Client(String typeClient,String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
-//		super();
-//		this.typeClient = typeClient;
-//		this.nom = nom;
-//		this.numeroTel = numeroTel;
-//		this.numeroFax = numeroFax;
-//		this.email = email;
-//		this.adresse = adresse;
-//	}
-//
-//	public Client(String typeClient, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse, Login login) {
-//		super();
-//		this.typeClient = typeClient;
-//		this.nom = nom;
-//		this.numeroTel = numeroTel;
-//		this.numeroFax = numeroFax;
-//		this.email = email;
-//		this.adresse = adresse;
-//		this.login = login;
-//	}
+	@Embedded
+	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero_rue_client")),
+			@AttributeOverride(name = "rue", column = @Column(name = "rue_client", length = 150)),
+			@AttributeOverride(name = "codePostal", column = @Column(name = "code_postal_client", length = 5)),
+			@AttributeOverride(name = "ville", column = @Column(name = "ville_client", length = 150)) })
+	private Adresse adresse;
+	
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "login_id")
+	private Login login;
+    
+    @OneToMany(mappedBy="key.client")
+    private Set<Reservation> reservations;
+
+	public Client(String typeClient,String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
+		super();
+		this.typeClient = typeClient;
+		this.nom = nom;
+		this.numeroTel = numeroTel;
+		this.numeroFax = numeroFax;
+		this.email = email;
+		this.adresse = adresse;
+	}
+
+	public Client(String typeClient, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse, Login login) {
+		super();
+		this.typeClient = typeClient;
+		this.nom = nom;
+		this.numeroTel = numeroTel;
+		this.numeroFax = numeroFax;
+		this.email = email;
+		this.adresse = adresse;
+		this.login = login;
+	}
 
 	public Client() {
 		super();
@@ -120,13 +120,13 @@ public abstract class Client {
 		this.id_client = id_client;
 	}
 
-//	public Set<Reservation> getReservations() {
-//		return reservations;
-//	}
-//
-//	public void setReservations(Set<Reservation> reservations) {
-//		this.reservations = reservations;
-//	}
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
+	}
 
 	public Integer getNumeroFax() {
 		return numeroFax;
@@ -145,21 +145,21 @@ public abstract class Client {
 	}
 
 
-//	public Adresse getAdresse() {
-//		return adresse;
-//	}
-//
-//	public void setAdresse(Adresse adresse) {
-//		this.adresse = adresse;
-//	}
-//
-//	public Login getLogin() {
-//		return login;
-//	}
-//
-//	public void setLogin(Login login) {
-//		this.login = login;
-//	}
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
 
 	public String getTypeClient() {
 		return typeClient;
