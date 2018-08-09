@@ -1,6 +1,8 @@
 package model;
 
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -25,6 +28,9 @@ public class Passager {
 	private String nom;
 	@Column(name = "prenom_passager", length = 50)
 	private String prenom;
+	@OneToMany(mappedBy = "passager")
+	private Set<Reservation> reservations;
+	
 	public Passager() {
 		super();
 		// TODO Auto-generated constructor stub
