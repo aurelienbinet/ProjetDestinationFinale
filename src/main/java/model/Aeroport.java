@@ -16,6 +16,10 @@ public class Aeroport {
 	private int version;
 	@Column(name = "nom_aeroport", length = 50)
 	private String nom;
+	@OneToMany(mappedBy = "arrivee")
+	private Set<Vol> arrivees;
+	@OneToMany(mappedBy = "depart")
+	private Set<Vol> departs;
 	@OneToMany(mappedBy = "key.aeroport")
 	private Set<AeroportVille> aeroportVille;
 	@OneToMany(mappedBy = "key.aeroport")
