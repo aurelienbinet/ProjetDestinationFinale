@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "film_realisateur")
+@Table(name = "compagnie_aerienne_vol")
 public class CompagnieAerienneVol {
 	
 	@EmbeddedId
