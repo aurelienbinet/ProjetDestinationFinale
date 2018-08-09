@@ -28,7 +28,7 @@ public abstract class Client {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
 	@SequenceGenerator(name = "seqClient", sequenceName = "seq_client", initialValue = 50, allocationSize = 1)
 	@Column(name = "id_client")
-	private Long id_client;
+	private Long id;
 	
 	@Column(name = "type_client", length=20)
 	private String typeClient;
@@ -56,7 +56,7 @@ public abstract class Client {
     @JoinColumn(name = "id_login")
 	private Login login;
     
-    @OneToMany(mappedBy="key.client")
+    @OneToMany(mappedBy="client")
     private Set<Reservation> reservations;
 
 	public Client(String typeClient,String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
@@ -85,13 +85,13 @@ public abstract class Client {
 	}
 
 
-	public void setId(Long id_client) {
-		this.id_client = id_client;
+	public void setId(Long id) {
+		this.id = id;
 
 	}
 
 	public Long getId() {
-		return id_client;
+		return id;
 	}
 
 	public String getNom() {
@@ -108,16 +108,6 @@ public abstract class Client {
 
 	public void setNumeroTel(Integer numeroTel) {
 		this.numeroTel = numeroTel;
-	}
-	
-	
-
-	public Long getId_client() {
-		return id_client;
-	}
-
-	public void setId_client(Long id_client) {
-		this.id_client = id_client;
 	}
 
 	public Set<Reservation> getReservations() {
@@ -173,7 +163,7 @@ public abstract class Client {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_client == null) ? 0 : id_client.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -186,10 +176,10 @@ public abstract class Client {
 		if (getClass() != obj.getClass())
 			return false;
 		Client other = (Client) obj;
-		if (id_client == null) {
-			if (other.id_client != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!id_client.equals(other.id_client))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
