@@ -52,7 +52,7 @@
 			ref="entityManagerFactory"></property>
 	</bean>
 
-	<tx:annotation-drien
+	<tx:annotation-driven
 		transaction-manager="transactionManager" />
 		
 	<bean
