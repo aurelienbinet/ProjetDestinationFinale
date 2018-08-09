@@ -53,7 +53,7 @@ public abstract class Client {
 	private Adresse adresse;
 	
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "login_id")
+    @JoinColumn(name = "id_login")
 	private Login login;
     
     @OneToMany(mappedBy="key.client")
