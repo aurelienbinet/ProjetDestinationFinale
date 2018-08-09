@@ -20,7 +20,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="client")
+@Table(name = "client")
 @DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, length = 10, name = "type")
 public abstract class Client {
 
@@ -29,37 +29,37 @@ public abstract class Client {
 	@SequenceGenerator(name = "seqClient", sequenceName = "seq_client", initialValue = 50, allocationSize = 1)
 	@Column(name = "id_client")
 	private Long id_client;
-	
-	@Column(name = "type_client", length=20)
+
+	@Column(name = "type_client", length = 20)
 	private String typeClient;
-	
-	@Column(name = "nom_client", length=20)
+
+	@Column(name = "nom_client", length = 20)
 	private String nom;
-	
-	@Column(name="tel_client",length=15)
+
+	@Column(name = "tel_client", length = 15)
 	private Integer numeroTel;
-		
-	@Column(name="fax_client",length=20)
+
+	@Column(name = "fax_client", length = 20)
 	private Integer numeroFax;
-	
-	@Column(name="email_client",length=50)
+
+	@Column(name = "email_client", length = 50)
 	private String email;
-	
+
 	@Embedded
 	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero_rue_client")),
 			@AttributeOverride(name = "rue", column = @Column(name = "rue_client", length = 150)),
 			@AttributeOverride(name = "codePostal", column = @Column(name = "code_postal_client", length = 5)),
 			@AttributeOverride(name = "ville", column = @Column(name = "ville_client", length = 150)) })
 	private Adresse adresse;
-	
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_login")
-	private Login login;
-    
-    @OneToMany(mappedBy="key.client")
-    private Set<Reservation> reservations;
 
-	public Client(String typeClient,String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_login")
+	private Login login;
+
+	@OneToMany(mappedBy = "key.client")
+	private Set<Reservation> reservations;
+
+	public Client(String typeClient, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
 		super();
 		this.typeClient = typeClient;
 		this.nom = nom;
@@ -69,7 +69,8 @@ public abstract class Client {
 		this.adresse = adresse;
 	}
 
-	public Client(String typeClient, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse, Login login) {
+	public Client(String typeClient, String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse,
+			Login login) {
 		super();
 		this.typeClient = typeClient;
 		this.nom = nom;
@@ -83,7 +84,6 @@ public abstract class Client {
 	public Client() {
 		super();
 	}
-
 
 	public void setId(Long id_client) {
 		this.id_client = id_client;
@@ -109,8 +109,6 @@ public abstract class Client {
 	public void setNumeroTel(Integer numeroTel) {
 		this.numeroTel = numeroTel;
 	}
-	
-	
 
 	public Long getId_client() {
 		return id_client;
@@ -143,7 +141,6 @@ public abstract class Client {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 
 	public Adresse getAdresse() {
 		return adresse;
@@ -193,8 +190,5 @@ public abstract class Client {
 			return false;
 		return true;
 	}
-	
-	
 
-	
 }
