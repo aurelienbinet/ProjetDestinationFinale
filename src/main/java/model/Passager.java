@@ -35,6 +35,8 @@ public class Passager {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqPassager")
 	@SequenceGenerator(name = "seqPassager", sequenceName = "seq_passager", initialValue = 100, allocationSize = 1)
+	@Column(name = "id_passager")
+	private Long idPassager;
 	@Column(name = "nom_passager", length = 50, nullable = false)
 	private String nom;
 	@Column(name = "prenom_passager", length = 50)
