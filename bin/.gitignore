@@ -4,6 +4,4 @@
 /.settings/**
 /.project
 /.metadata
-/.metadata
-
-/target/
+/bin/**
